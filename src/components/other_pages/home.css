@@ -1,0 +1,35 @@
+.homeContainer{
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+.carouselImg{
+    object-fit:cover;
+  }
+.containerJeremy{
+  align-items: center;
+
+}
+  .containerAboutMe {
+    background-color: rgb(189, 4, 4);
+    border-left: 24px solid rgb(138, 15, 15);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+
+
+  }
+  
+.imgTextLabel{
+  background-color: #077907;
+  border-left: 6px solid #056408;
+}
+  .imgSticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 200px;
+  }

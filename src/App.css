@@ -12,7 +12,14 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.main-navbar{
+  background-color: lightskyblue;
+}
+.main-navigation {
+  border: 1px solid;
 
+  box-shadow: 0 10px 10px rgba(0,0,0,0.25);
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,6 +35,12 @@
   color: #61dafb;
 }
 
+.App-unAuth{
+  object-fit:cover;
+  height: 100%;
+  width: 100%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +49,21 @@
     transform: rotate(360deg);
   }
 }
+
+.loginorreg{
+  font-size: 15px;
+  margin:10px;
+  padding: 5px 20px;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-backdrop{
+  opacity:0; transition:opacity .2s;
+}
+.modal-backdrop.in{
+  opacity:.7;
+}
+
