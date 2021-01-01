@@ -8,8 +8,7 @@ import Input from '../Input/Input';
 import * as URLroutes from '../URLRoutes'
 import './Chat.css';
 
-const ENDPOINT = 'https://chat-games-online-app.herokuapp.com/';
-//const ENDPOINT = 'http://localhost:9000'
+
 let socket;
 
 const Chat = ({ location }) => {
@@ -24,8 +23,6 @@ const Chat = ({ location }) => {
 
     socket = io(URLroutes.ENDPOINT_CHAT);
     if(name&&room){
-      // console.log(name)
-      // console.log(room)
       
       socket.emit('join', { name, room }, (error) => {
         if(error) {
@@ -43,7 +40,7 @@ const Chat = ({ location }) => {
       socket.disconnect()
       socket.off()
   }
-  }, [ENDPOINT, location.search]);
+  }, [URLroutes.ENDPOINT_CHAT, location.search]);
   
   useEffect(() => {
 
@@ -59,7 +56,6 @@ const Chat = ({ location }) => {
 
     return () => {
       //cleanup
-      //alert("here")
       socket.disconnect()
       socket.off()
   }
