@@ -6,10 +6,8 @@ import {authenticateToken} from '../authenticateToken';
 import roomImg from '../../onevsone.jpg';
 import "./roomCard.css";
 
-let socket;
 
 function GenerateRooms() {
-  const [name] = useState(sessionStorage.getItem('user'));
   const [rooms, setRooms] = useState();
   /**
    * useEffect():
@@ -20,9 +18,6 @@ function GenerateRooms() {
    */
 
   useEffect(() => {
-    if(name==='Jeremy' || name==='jeremy'){
-      window.location.href="/BannedSaltyPlayer"
-    }else{
       authenticateToken().then(data => {
         if(data){
           initiateTicTacToeSocket()
@@ -44,7 +39,6 @@ function GenerateRooms() {
         sessionStorage.clear()
         window.location.href="/games/unAuthError"
       })
-    }
 
     
     return () =>{
