@@ -4,17 +4,21 @@ import { initiateTicTacToeSocket, disconnectTicTacToeSocket,
 import * as ReactBoostrap from "react-bootstrap";
 import {authenticateToken} from '../authenticateToken';
 import roomImg from '../../onevsone.jpg';
-import "./Box.css";
+import "./roomCard.css";
 
 let socket;
 
 function GenerateRooms() {
   const [name] = useState(sessionStorage.getItem('user'));
   const [rooms, setRooms] = useState();
-//why this works is because this mounts (and renders atleast once) and listens for event  
-//first fire an emit to to the server listening to channel 'generateRooms'
-//then subscribe/listen to the topic 'generateRooms' 
-//so when the server fires back an event(the list of rooms) this component will listen 
+  /**
+   * useEffect():
+   * why this works is because useeffect mounts (and renders atleast once) and listens for event  
+   * first fire an emit to the server that is listening to the channel 'generateRooms'
+   * then subscribe/listen to the topic 'generateRooms' 
+   * so when the server fires back an event(the list of rooms) this component will listen and capture the room detail data 
+   */
+
   useEffect(() => {
     if(name==='Jeremy' || name==='jeremy'){
       window.location.href="/BannedSaltyPlayer"
@@ -22,9 +26,7 @@ function GenerateRooms() {
       authenticateToken().then(data => {
         if(data){
           initiateTicTacToeSocket()
-          //initiateChatSocket()
           subscribeToTicTacToeRooms((err,roomListings)=>{
-            // console.log(roomListings)
             let roomsWithIsFullGui = []
             for(let index = 0 ;index<roomListings.length; index ++){
               if(roomListings[index].userCount===2)
@@ -34,8 +36,6 @@ function GenerateRooms() {
                 roomsWithIsFullGui.push({room: roomListings[index], isRoomFull: false })
               }
             }
-            // console.log("roomwithisfullgui")
-            // console.log(roomsWithIsFullGui)
             setRooms(roomsWithIsFullGui)
           })
         }
@@ -56,7 +56,6 @@ function GenerateRooms() {
  async function joinRoom(card)
   {
     await sessionStorage.setItem('roomName',card.title)
-    // console.log(sessionStorage.getItem('roomName'))
     window.location.href="/Chat/Chat"
   }  
 

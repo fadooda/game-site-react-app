@@ -1,12 +1,9 @@
 import '../App.css';
 import React, { useState } from 'react';
-//import Modal from "react-responsive-modal";
 import LoginApp from './login/loginApp'
 import * as ReactBoostrap from "react-bootstrap";
 import loginImg from "../login.png";
-//import Example from './LoginModal'
 function Navbar ()  {
-  // console.log(process.env.DB_HOST)
   const [show, setShow] = useState(false);
   
   const handleClose = () => setShow(false);

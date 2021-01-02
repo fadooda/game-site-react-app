@@ -9,20 +9,19 @@ export function calculateWinner(squares) {
       [0, 4, 8],
       [2, 4, 6]
     ];
-    //let 
+
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
     }
+    
     for(let index=0; index< squares.length; index++){
       if(squares[index]===null){
         return null 
       }
     }
-    // console.log("squares length and squares")
-    // console.log(squares.length)
-    // console.log(squares)
+
       return "Tie"
   }

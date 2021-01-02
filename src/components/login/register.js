@@ -1,5 +1,4 @@
 import React from "react";
-import loginImg from "../../login.png";
 import axios from 'axios';
 import "./loginRegisterForm.css";
 import "./spinner.css"
@@ -43,8 +42,6 @@ export class Register extends React.Component {
         isFormComplete: false
       }
     };
-    //this.onChange = this.onChange.bind(this);
-    //this.handleChange = this.handleChange.bind(this);
 
   }
 
@@ -54,26 +51,13 @@ export class Register extends React.Component {
       let formErrorsToChange = { ...this.state.formErrors };
       let {userName,email,password}= this.state
       formErrorsToChange.isFormComplete=false; //stop users from submitting more than one form
-      //let formState= {...this.state};
       this.setState({
             formErrors: formErrorsToChange,
             loading: true
          });
-      //this.setState({isFormComplete: false})
-      // console.log(`
-      //   --SUBMITTING--
-      //   User Name: ${userName}
-      //   Email: ${email}
-      //   Password: ${password}
-      // `);
-      //promises
-      //check values before sending props propergrate when the state changes. axiumns how to manage data  
-      //react router //difference between component and container
 
       axios.post(URLroutes.registerURL, {userName,email,password})
       .then(res => {
-        // console.log(res);
-        // console.log(res.data);
         if(res && res.status===204)
         {
           this.setState({
@@ -98,15 +82,6 @@ export class Register extends React.Component {
           showSnackbar: false
         });
       }, 3000);
-      /*
-      fetch( targetUrl , { //look up redux, hoc pattern 
-        method: "POST",
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(this.state)
-    })//.then((result) => result.json())
-    //.then((info) => { console.log(info); })*/
     }else{
       alert(":::Please enter a username, email and password to register:::")
     }

@@ -1,5 +1,4 @@
 import React from "react";
-import loginImg from "../../login.png";
 import axios from 'axios';
 import "./loginRegisterForm.css";
 import "./spinner.css"
@@ -48,18 +47,11 @@ export class Login extends React.Component {
             formErrors: formErrorsToChange,
             loading: true
           });
-      // console.log(`
-      //   --SUBMITTING--
-      //   User Name: ${userName}
-      //   Password: ${password}
-      // `);
-  
+
       axios.post(URLroutes.loginURL,{userName,password})
       .then(res => {
-        //console.log(res.data);
         sessionStorage.setItem('user',this.state.userName)
         sessionStorage.setItem('accessToken',res.data.accessToken)
-        sessionStorage.setItem('refreshToken', res.data.refreshToken)
         window.location.href="/games/rooms"
       }).catch(error =>{
         this.setState({
