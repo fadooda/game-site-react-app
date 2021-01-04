@@ -1,6 +1,6 @@
 import React from 'react'
 import * as ReactBoostrap from "react-bootstrap";
-import TicTacToeGame from "../../TictacToeGame.PNG"
+import TicTacToeGame from "../../TictacToeGame.png"
 import BattleshipGame from "../../battleship.jpg"
 // import { Text, ImageBackground } from "react-native";
 //import '../../App.css'

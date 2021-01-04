@@ -37,7 +37,7 @@ function GenerateRooms() {
       }).catch(error => {
         alert(error)
         sessionStorage.clear()
-        window.location.href="/games/unAuthError"
+        //window.location.href="/games/unAuthError"
       })
 
     
