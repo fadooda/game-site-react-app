@@ -67,15 +67,20 @@ export class Register extends React.Component {
           });
         }
       }).catch(error =>{
-        this.setState({
-          loading: false,
-          formErrors: {
-            userName: "User Name already exist please choose another name",
-            email: "",
-            password: "",
-            isFormComplete: false
-          }
-        });
+        if(error.response && error.response.status===409)
+        {
+          this.setState({
+            loading: false,
+            formErrors: {
+              userName: "User Name already exist please choose another name",
+              email: "",
+              password: "",
+              isFormComplete: false
+            }
+          });
+        }else{
+          alert(":::Login/Register server down for maintence:::")
+        }
       })
       setTimeout(()=>{
         this.setState({

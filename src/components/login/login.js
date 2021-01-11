@@ -65,7 +65,7 @@ export class Login extends React.Component {
           alert(":::User doesn't exist:::")
         }
         else {
-            alert(":::Login server down for maintence:::")
+            alert(":::Login/Register server down for maintence:::")
           }
       })      
     }else{
